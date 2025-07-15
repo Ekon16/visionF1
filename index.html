@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision F1 - AR Race Track Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://via.placeholder.com/32x32/FF0000/FFFFFF?text=F1">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="visionf1.png" alt="Vision F1 Logo" class="logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#circuit">Circuito AR</a></li>
+            <li><a href="#photos">Fotos AR</a></li>
+            <li><a href="#ecosystem">Ecosistema</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h1>Vive el Circuito Como Nunca Antes: La Realidad Aumentada Toma el Volante</h1>
+                <p>Desbloquea las historias ocultas y la emoción de la pista, directamente en tus manos con la tecnología de Realidad Aumentada.</p>
+                <div class="hero-media">
+                    <video autoplay muted loop playsinline class="hero-video">
+                        <source src="videoInicio.mp4" type="video/mp4">
+                        Tu navegador no soporta el tag de video.
+                    </video>
+                </div>
+                <button class="btn-primary scroll-to-circuit">Inicia tu Experiencia AR</button>
+            </div>
+        </section>
+
+        <section id="circuit" class="circuit-section">
+            <h2>Explora el Circuito: Tu Pit Lane Digital en AR</h2>
+            <p>Toca puntos clave en el mapa del circuito para revelar datos en tiempo real, historias fascinantes y perspectivas únicas de cada sección, todo mejorado con Realidad Aumentada.</p>
+
+            <div class="circuit-map-container">
+                <img src="monaco-map.webp" alt="Mapa Interactivo del Circuito de Mónaco" class="circuit-map-image">
+                <div class="hotspot hotspot-turn1" data-spot="turn1">1</div>
+                <div class="hotspot hotspot-hairpin" data-spot="hairpin">2</div>
+                <div class="hotspot hotspot-pitlane" data-spot="pitlane">3</div>
+                <div class="hotspot hotspot-startfinish" data-spot="startfinish">4</div>
+            </div>
+
+            <div id="circuit-info-overlay" class="circuit-info-overlay">
+                <div class="overlay-content">
+                    <button class="close-overlay" aria-label="Cerrar Información del Circuito">&times;</button>
+                    <h3 id="overlay-title"></h3>
+                    <img id="overlay-image" src="" alt="Imagen del Punto del Circuito">
+                    <p id="overlay-history"></p>
+                    <p id="overlay-drivers"></p>
+                    <div class="ar-data">
+                        <p><strong>Velocidad (AR Simulada):</strong> <span id="ar-speed"></span></p>
+                        <p><strong>G-Force (AR Simulada):</strong> <span id="ar-gforce"></span></p>
+                        <p><strong>Zona de Frenado (AR Simulada):</strong> <span id="ar-braking"></span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="photos" class="photos-section">
+            <h2>Tu Día de Carrera, Reimaginado: Fotos Inmersivas con Efectos AR</h2>
+            <p>Descubre cómo la Realidad Aumentada transforma tus fotos con efectos dinámicos y superposiciones en tiempo real, capturando momentos inolvidables y elevando tus recuerdos.</p>
+
+            <div class="photo-gallery">
+                <div class="gallery-item">
+                    <img src="cocheAR.png" alt="Coche de F1 virtual superpuesto en una foto de pista">
+                    <p>Modelo de Coche AR</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="clasificacionAR.png" alt="Tabla de clasificación AR flotando sobre la multitud">
+                    <p>Tabla de Clasificación AR</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="cascoAR.png" alt="Persona con un casco de F1 virtual en una selfie">
+                    <p>Selfie con Casco AR</p>
+                </div>
+            </div>
+
+            <div class="ar-filter-demo">
+                <h3>Prueba un Filtro AR Interactivo (Simulado)</h3>
+                <p>Experimenta cómo la Realidad Aumentada puede añadir elementos dinámicos y datos relevantes a tus imágenes en tiempo real.</p>
+                <div class="filter-image-container">
+                    <img id="filter-demo-image" src="pista.png" alt="Imagen de demostración de pista de carreras">
+                    <div id="ghost-car-overlay" class="ar-effect ghost-car"></div>
+                    <div id="driver-stats-overlay" class="ar-effect driver-stats">
+                        <span>L. HAMILTON</span><br>
+                        <span>P1 | 1:23.456</span><br>
+                        <span>+0.05s Sector 1</span>
+                    </div>
+                </div>
+                <div class="filter-buttons">
+                    <button class="btn-secondary" data-filter="ghost-car" aria-label="Aplicar filtro de coche fantasma">Coche Fantasma</button>
+                    <button class="btn-secondary" data-filter="driver-stats" aria-label="Aplicar filtro de estadísticas de piloto">Estadísticas Piloto</button>
+                    <button class="btn-secondary" data-filter="reset" aria-label="Resetear todos los filtros AR">Resetear Filtros</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="ecosystem" class="ecosystem-section">
+            <h2>Acceso Sin Interrupciones, Descubrimiento Ilimitado: El Ecosistema AR de Vision F1</h2>
+            <p>Desde una configuración sencilla hasta una vibrante comunidad online, hemos diseñado cada paso de tu viaje AR para que sea intuitivo, emocionante y completamente inmersivo.</p>
+
+            <div class="ecosystem-grid">
+                <div class="ecosystem-item">
+                    <img src="https://img.icons8.com/ios-filled/100/FF0000/settings.png" alt="Icono de Configuración Sencilla">
+                    <h3>Configuración Sencilla</h3>
+                    <p>Recoge tu tablet AR preconfigurada en quioscos designados. Lista para sumergirte desde el momento en que llegas, sin descargas ni complicaciones técnicas.</p>
+                </div>
+                <div class="ecosystem-item">
+                    <img src="https://img.icons8.com/ios-filled/100/FF0000/design.png" alt="Icono de Diseño Intuitivo">
+                    <h3>Diseño Intuitivo</h3>
+                    <p>Nuestra interfaz centrada en el usuario garantiza una experiencia fluida y atractiva, dándote el control total de tu viaje AR con un simple toque y gestos intuitivos.</p>
+                </div>
+                <div class="ecosystem-item">
+                    <img src="clipart1488666.png" alt="Icono de Comunidad">
+                    <h3>Únete a la Comunidad</h3>
+                    <p>Comparte tus perspectivas AR únicas, desafía a amigos con tus fotos y videos AR, y conéctate con una vibrante comunidad global de entusiastas de las carreras online.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>¿Listo para Transformar tu Día de Carrera?</h2>
+            <p>Descubre cómo la Experiencia AR Vision F1 puede elevar tu evento, patrocinio o activación de marca. Contacta con nosotros hoy mismo para saber más y solicitar una demostración.</p>
+
+            <div class="contact-grid">
+                <div class="contact-form-container">
+                    <h3>Reserva ahora Vision F1</h3>
+                    <form class="contact-form">
+                        <input type="text" placeholder="Tu Nombre" required aria-label="Tu Nombre">
+                        <input type="email" placeholder="tu.email@ejemplo.com" required aria-label="Tu Email">
+                        <textarea placeholder="Estoy interesado en..." rows="5" aria-label="Tu Mensaje"></textarea>
+                        <button type="submit" class="btn-primary">¡Lo quiero ya!</button>
+                        <small>*(Este es un formulario de demostración y no envía datos reales.)*</small>
+                    </form>
+                </div>
+
+                <div class="contact-qr-container">
+                    <h3>Contenido Exclusivo AR</h3>
+                   <a data-8code="emhq5" data-dark-theme></a>
+<script src="//cdn.8thwall.com/web/share/embed8.js"></script>
+                    <p>Escanea el código QR para acceder a una experiencia AR de demostración directa en tu smartphone, o descarga nuestra brochure.</p>
+                    <button class="btn-secondary">Solicitar Propuesta Completa</button>
+                </div>
+
+                
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Vision F1. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <a href="#" aria-label="X/Twitter"><img src="https://img.icons8.com/ios-filled/50/FF0000/twitter.png" alt="X/Twitter Icon"></a>
+            <a href="#" aria-label="Instagram"><img src="https://img.icons8.com/ios-filled/50/FF0000/instagram-new.png" alt="Instagram Icon"></a>
+            <a href="#" aria-label="YouTube"><img src="https://img.icons8.com/ios-filled/50/FF0000/youtube-play.png" alt="YouTube Icon"></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

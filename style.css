@@ -1,0 +1,717 @@
+/* Variables */
+:root {
+    --color-black: #0A0A0A;
+    --color-red: #FF0000;
+    --color-white: #FFFFFF;
+    --color-light-grey: #CCCCCC;
+    --color-dark-grey: #333333;
+    --color-gradient-start: #1a0000; /* New variable for consistent gradient */
+}
+
+/* Base Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-black);
+    color: var(--color-light-grey);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-white);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Added text shadow for better readability */
+}
+
+h1 { font-size: 3.5em; text-align: center; }
+h2 { font-size: 2.5em; text-align: center; }
+h3 { font-size: 1.8em; }
+
+p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+a {
+    color: var(--color-red);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-white);
+}
+
+section {
+    padding: 80px 5%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Navbar */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--color-white);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 90%; /* Adjusted to 90% for padding consideration */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid var(--color-dark-grey); /* Added subtle border */
+}
+
+.nav-brand {
+    /* Removed font styles, now it contains an image */
+    /* font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--color-red);
+    text-transform: uppercase;
+    letter-spacing: 1px; */
+    display: flex; /* Ensures logo is centered if needed */
+    align-items: center;
+}
+
+.nav-brand .logo {
+    height: 40px; /* Ajusta la altura de tu logo */
+    width: auto; /* Mantiene la proporción */
+    filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.5)); /* Opcional: efecto de brillo */
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: var(--color-white);
+    font-weight: 400;
+    padding: 5px 0;
+    position: relative;
+    text-transform: uppercase; /* Added text transform */
+    font-size: 0.95em; /* Slightly adjusted font size */
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--color-red);
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Buttons */
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px; /* Added letter spacing */
+}
+
+.btn-primary {
+    background-color: var(--color-red);
+    color: var(--color-white);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-red); /* Keep same for glow effect */
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 1);
+}
+
+.btn-secondary {
+    background-color: var(--color-dark-grey);
+    color: var(--color-white);
+    border: 1px solid var(--color-red);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-red);
+    border-color: var(--color-red);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4); /* Added box shadow on hover */
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, var(--color-black) 0%, var(--color-gradient-start) 100%); /* Used new variable */
+    padding-top: 80px; /* Account for fixed navbar */
+}
+
+.hero-content {
+    max-width: 900px;
+    text-align: center;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.hero-content h1 {
+    font-size: 4em;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8); /* Stronger shadow for hero H1 */
+}
+
+.hero-content p {
+    font-size: 1.4em;
+    margin-bottom: 40px;
+    color: var(--color-light-grey);
+    max-width: 800px; /* Constrain paragraph width */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-media {
+    margin: 40px auto;
+    width: 80%;
+    max-width: 700px;
+    aspect-ratio: 16/9; /* Standard video aspect ratio */
+    background-color: var(--color-dark-grey); /* Placeholder for video loading */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+    border: 2px solid var(--color-red); /* Added border for emphasis */
+}
+
+.hero-video, .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Circuit Section */
+.circuit-section {
+    background-color: #111;
+    padding-bottom: 120px; /* Extra space for overlay */
+}
+
+.circuit-map-container {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    margin: 50px auto;
+    background-color: var(--color-dark-grey);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    border: 2px solid var(--color-red); /* Added border */
+}
+
+.circuit-map-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(0.8); /* Slightly dim the map itself */
+}
+
+.hotspot {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-red);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 15px var(--color-red);
+    animation: pulse 2s infinite ease-in-out;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--color-white);
+    border: 2px solid var(--color-white);
+    font-size: 1.2em; /* Increased font size for numbers */
+    z-index: 1; /* Ensure hotspots are above the image */
+}
+
+.hotspot:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px var(--color-red);
+}
+
+/* Example Hotspot Positioning (adjust based on your map image) */
+.hotspot-turn1 { top: 30%; left: 15%; }
+.hotspot-hairpin { top: 60%; left: 25%; }
+.hotspot-pitlane { top: 40%; left: 70%; }
+.hotspot-startfinish { top: 10%; left: 50%; }
+
+/* Circuit Info Overlay */
+.circuit-info-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.circuit-info-overlay.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.overlay-content {
+    background-color: var(--color-dark-grey);
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 700px;
+    width: 90%;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.7);
+    position: relative;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    border: 2px solid var(--color-red); /* Added border */
+}
+
+.circuit-info-overlay.visible .overlay-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.close-overlay {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: var(--color-white);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-overlay:hover {
+    color: var(--color-red);
+    transform: rotate(90deg); /* Added subtle rotate effect */
+}
+
+.overlay-content h3 {
+    color: var(--color-red);
+    margin-top: 0;
+}
+
+.overlay-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 0, 0, 0.3); /* Added subtle border to image */
+}
+
+.ar-data p {
+    font-size: 1.1em;
+    margin: 5px 0;
+    color: var(--color-white);
+}
+
+.ar-data strong { /* Changed from span to strong for semantic emphasis */
+    font-weight: 700;
+    color: var(--color-red);
+}
+
+/* Photos Section */
+.photos-section {
+    background-color: var(--color-black);
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gallery-item {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow to transition */
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.6); /* Enhanced hover shadow */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px; /* Fixed height for consistency */
+    object-fit: cover;
+    display: block;
+    border-bottom: 2px solid var(--color-red); /* Added border to images */
+}
+
+.gallery-item p {
+    padding: 15px;
+    font-weight: 700;
+    color: var(--color-red);
+    margin: 0;
+    background-color: #1a1a1a; /* Ensure background is consistent */
+}
+
+.ar-filter-demo {
+    margin-top: 80px;
+    background-color: #1a1a1a;
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+    border: 2px solid var(--color-red); /* Added border */
+}
+
+.filter-image-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    margin: 30px 0;
+    background-color: var(--color-dark-grey);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); /* Inner shadow for depth */
+}
+
+#filter-demo-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.5s ease, opacity 0.5s ease; /* Added transition for filter and opacity */
+}
+
+.ar-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none; /* Allows clicks to pass through */
+    display: flex; /* For centering content */
+    justify-content: center;
+    align-items: center;
+    color: var(--color-white);
+    font-weight: 700;
+    font-size: 1.2em;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
+
+.ar-effect.active {
+    opacity: 1;
+}
+
+.ghost-car {
+    background: url('http://googleusercontent.com/image_generation_content/3') no-repeat center center;
+    background-size: 80%; /* Adjusted for smaller size */
+    filter: brightness(1.5) drop-shadow(0 0 5px var(--color-red)); /* Example AR glow */
+}
+
+.driver-stats {
+    background-color: rgba(255, 0, 0, 0.2); /* Semi-transparent red box */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 180px; /* Slightly wider */
+    height: auto; /* Auto height to accommodate more lines */
+    border-radius: 8px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 1em; /* Slightly larger font */
+    line-height: 1.4;
+    text-align: left;
+    backdrop-filter: blur(5px); /* Stronger blur behind the stats */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+    border: 1px solid var(--color-red); /* Added border */
+}
+
+.filter-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Ecosystem Section */
+.ecosystem-section {
+    background-color: #111;
+    padding: 100px 5%;
+}
+
+.ecosystem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ecosystem-item {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--color-dark-grey); /* Added subtle border */
+}
+
+.ecosystem-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+    border-color: var(--color-red); /* Border changes on hover */
+}
+
+.ecosystem-item img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px var(--color-red));
+}
+
+.ecosystem-item h3 {
+    color: var(--color-red);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: var(--color-black);
+    padding-bottom: 100px;
+}
+
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 50px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-form-container, .contact-qr-container {
+    background-color: #1a1a1a;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+    flex: 1 1 45%; /* Allows items to grow/shrink, takes about 45% width */
+    min-width: 300px; /* Minimum width before wrapping */
+    border: 1px solid var(--color-dark-grey); /* Added subtle border */
+}
+
+.contact-form h3, .contact-qr-container h3 {
+    color: var(--color-red);
+    margin-top: 0;
+    margin-bottom: 25px; /* Increased bottom margin */
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: calc(100% - 20px);
+    padding: 12px; /* Slightly more padding */
+    margin-bottom: 20px;
+    border: 1px solid var(--color-dark-grey);
+    border-radius: 5px;
+    background-color: #0A0A0A;
+    color: var(--color-white);
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow to transition */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--color-red);
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.7); /* Stronger focus shadow */
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-qr-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-code {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+    border: 2px solid var(--color-red); /* Added border */
+}
+
+.contact-qr-container .btn-secondary {
+    margin-top: 20px;
+}
+
+/* Footer */
+.footer {
+    background-color: #111;
+    color: var(--color-light-grey);
+    padding: 30px 5%;
+    text-align: center;
+    border-top: 1px solid #222;
+}
+
+.footer p {
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.social-links img {
+    width: 28px;
+    height: 28px;
+    filter: brightness(0.8); /* Dim icons slightly */
+    transition: filter 0.3s ease, transform 0.3s ease; /* Added transform to transition */
+}
+
+.social-links img:hover {
+    filter: brightness(1) drop-shadow(0 0 8px var(--color-red)); /* Stronger drop shadow */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 15px var(--color-red); }
+    50% { transform: scale(1.05); box-shadow: 0 0 25px var(--color-red); }
+    100% { transform: scale(1); box-shadow: 0 0 15px var(--color-red); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 { font-size: 2.8em; }
+    h2 { font-size: 2em; }
+    p { font-size: 1em; }
+
+    .navbar {
+        flex-direction: column;
+        padding: 10px 5%;
+    }
+    .nav-brand { margin-bottom: 10px; }
+    .nav-brand .logo { /* Adjust logo size for smaller screens */
+        height: 30px;
+    }
+    .nav-links {
+        width: 100%;
+        justify-content: space-around;
+        margin-top: 10px;
+    }
+    .nav-links li { margin-left: 0; }
+
+    .hero-content h1 { font-size: 2.5em; }
+    .hero-content p { font-size: 1.1em; }
+
+    .circuit-info-overlay .overlay-content {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .photo-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-form-container, .contact-qr-container {
+        width: 90%;
+        min-width: unset; /* Reset min-width for smaller screens */
+    }
+    .ar-filter-demo {
+        padding: 20px;
+    }
+    .driver-stats {
+        width: 150px; /* Adjust size for smaller screens */
+        padding: 15px;
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.7em; }
+    .btn-primary, .btn-secondary {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+    .hero-content { padding: 0 20px; }
+    .nav-links { font-size: 0.85em; } /* Further reduced font size for nav links */
+    .filter-buttons {
+        flex-direction: column; /* Stack buttons on very small screens */
+        gap: 10px;
+    }
+}
